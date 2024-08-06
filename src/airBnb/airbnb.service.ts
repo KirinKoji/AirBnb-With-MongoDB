@@ -4,6 +4,7 @@ import { InjectModel } from '@nestjs/mongoose';
 import { FilterQuery, Model } from 'mongoose';
 import { CreateAirBnbDto } from './dto/create-airbnb.dto';
 import { ListQueryAirBnb } from './dto/listing-airbnb.dto';
+import { UpdateAirBnbDto } from './dto/update-airbnb.dto';
 
 @Injectable()
 export class AirBnbService {
@@ -604,4 +605,16 @@ export class AirBnbService {
         return this.airBnbModel.find(conditions, {}, { limit: limit, skip: offset }).exec();
     }   
     
+
+    async getDetailAirBnb(id: string): Promise<listingsAndReviews> {
+        return this.airBnbModel.findById(id).exec();
+    }
+
+    async updateAirBnb(id: string, updateAirBnbDto: UpdateAirBnbDto): Promise<listingsAndReviews> {
+        return this.airBnbModel.findByIdAndUpdate(id, updateAirBnbDto, { new: true }).exec();
+    }
+
+    async deleteAirBnb(id: string): Promise<listingsAndReviews> {
+        return this.airBnbModel.findByIdAndDelete(id).exec();
+    }
 }

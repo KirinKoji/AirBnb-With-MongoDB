@@ -1,10 +1,10 @@
 import { Module } from '@nestjs/common';
 import { ConfigModule, ConfigService } from '@nestjs/config';
 import { MongooseModule } from '@nestjs/mongoose';
-import { AirBnbController } from './movies/airbnb.controller'; 
-import { listingsAndReviewsSchema } from './movies/entities/airbnb.schema';
-import { AirBnbService } from './movies/airbnb.service';
-import { AirBnbModule } from './movies/airbnb.module';
+import { AirBnbModule } from './airBnb/airbnb.module';
+import { listingsAndReviewsSchema } from './airBnb/entities/airbnb.schema';
+import { AirBnbController } from './airBnb/airbnb.controller';
+import { AirBnbService } from './airBnb/airbnb.service';
 
 @Module({
   imports: [
